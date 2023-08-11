@@ -38,8 +38,6 @@ app.use(express.urlencoded({ extended: true }));
 //serves static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
