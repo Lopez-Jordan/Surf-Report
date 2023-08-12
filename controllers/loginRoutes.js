@@ -11,6 +11,4 @@ router.post('/signup')
 
 router.post('/logout');
 
-
-
 module.exports = router;

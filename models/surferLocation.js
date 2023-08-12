@@ -24,7 +24,8 @@ SurferLocation.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Surfer'
+                model: 'Location',
+                key: 'id'
             }
         }
     },
