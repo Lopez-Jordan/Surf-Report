@@ -10,7 +10,8 @@ Location.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            autoIncrement: true
+            autoIncrement: true,
+            primaryKey: true,
         },
         description: {
             type: DataTypes.STRING,

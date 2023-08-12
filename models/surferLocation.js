@@ -10,6 +10,7 @@ SurferLocation.init(
     {
         id: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             autoIncrement: true
         },
         surfer_id: {
