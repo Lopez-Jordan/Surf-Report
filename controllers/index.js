@@ -1,3 +1,9 @@
-// homepage ('/') route here
+const router = require('express').Router();
+const apiRoutes = require('./api');
 
-// route to api FOLDER  (mini router)
+router.get('/');
+// just render the homepage
+
+router.use('/api', apiRoutes);
+
+module.exports = router;
