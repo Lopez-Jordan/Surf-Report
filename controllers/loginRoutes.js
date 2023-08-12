@@ -39,7 +39,22 @@ router.get('/signup', async (req,res)=>{    // DONE (not tested)
 });
 
 
-router.post('/signup')
+router.post('/signup', async (req,res)=>{
+    try{
+        const newSurfer = Surfer.create({
+            name: req.body.name,
+            password: req.body.password
+        });
+        req.session.save(() => {
+            req.session.surferId = newSurfer.id;
+            req.session.loggedIn = true;
+            res.status(200).json(newSurfer);
+        });
+    } 
+    catch (error){
+        res.status(400).json(error);
+    }
+});
 
 router.post('/logout');
 
