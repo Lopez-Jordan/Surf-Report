@@ -27,14 +27,11 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-
 app.use(express.json());  //parses incoming JSON 
-
 app.use(express.urlencoded({ extended: true }));    //parses incoming URL-endoded data
-
 app.use(express.static(path.join(__dirname, 'public')));  //serves static files from the 'public' directory
 
-app.use(routes);
+app.use(routes);  // ROUTES
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
