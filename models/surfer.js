@@ -10,7 +10,6 @@ class Surfer extends Model{
       }
 }
 
-
 Surfer.init(
     {
         id: {
