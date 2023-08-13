@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
 const {Surfer, Location, SurferLocation} = require('../models');
+const {fetchLocationData, degreesToCardinal, avgWave } = require('../utils/convertLocation');
+
+
 
 router.get('/', async (req, res) => {       // DONE (not tested)
     try {
@@ -21,7 +24,7 @@ router.get('/', async (req, res) => {       // DONE (not tested)
             });
         }
         const Locations = allLocations.map((el) => el.get({ plain: true }));    //an array of objects
-
+        // do a for each loop in locations and add the new fetch of each location to the object itself
         res.status(200).render('homepage', {
             Locations,  //an array of objects
             loggedIn: req.session.loggedIn,
