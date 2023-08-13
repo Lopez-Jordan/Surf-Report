@@ -20,10 +20,10 @@ router.get('/', async (req, res) => {       // DONE (not tested)
                 ]
             });
         }
-        const Locations = allLocations.map((el) => el.get({ plain: true }));
+        const Locations = allLocations.map((el) => el.get({ plain: true }));    //an array of objects
 
         res.status(200).render('homepage', {
-            Locations,
+            Locations,  //an array of objects
             loggedIn: req.session.loggedIn,
         });
     } catch (error) {

@@ -2,18 +2,23 @@
 const router = require('express').Router();
 const {Surfer, Location, SurferLocation} = require('../models');
 
-router.post('/location');   //  /api/location
+router.post('/location', async (req,res)=>{
+    try{
+        const newLocation = await Location.create({
+            description: req.body.description,
+            lat: req.body.lat,
+            long: req.body.long
+        });
 
-// create the location
-// find that new location id ^
-
-// don't forget to update the surferLocation table like below:
-
-// await SurferLocation.create({
-//     SurferId: surferId,
-//     LocationId: location.id,
-//     date_visited: dateVisited
-//   });
+        const newSurferLocation = await SurferLocation.create({
+            surfer_id: req.body.surferId,
+            location_id: newLocation.id
+        });
+        res.status(200).json({newLocation, newSurferLocation});
+    } catch(error){
+        res.status(400).json(error);
+    }
+});
 
 router.put('/location/:id');    //  /api/location/:id
 // normal
@@ -21,7 +26,7 @@ router.put('/location/:id');    //  /api/location/:id
 
 router.delete('/location/:id');     //  /api/location/:id
 
-// ur really deleting the association (not the surfer or the location)
+// ur really deleting the association nothing else
 
 
     //   const { surferId, locationId } = req.params;
@@ -45,3 +50,4 @@ router.delete('/location/:id');     //  /api/location/:id
 
 
 module.exports = router;
+
