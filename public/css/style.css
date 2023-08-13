@@ -1,1 +1,250 @@
 /* custom CSS files */
+html {
+    scroll-behavior: smooth;
+    transition: all 0.2s ease-in;
+  }
+  p {
+    line-height: 26px;
+  }
+  
+  h2 {
+    color: #446e8e;
+    position: relative;
+    text-align: center;
+  }
+  hr {
+    border-top: 1px dotted black ;
+  }
+  
+  /* this will display a background video behind the content div*/
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  /* this will control the content section that will display over the background video */
+  .content {
+    top: 0;
+    color: #f1f1f1;
+    width: 100%;
+  }
+  /* header content */
+  header {
+    z-index: 99;
+    position: fixed;
+    background: rgb(171,198, 230);
+    background: linear-gradient(
+      212deg,
+      rgba(171,198, 230, 1) 0%,
+      rgba(171,198, 230, 1) 52%,
+      rgba(68, 110, 142, 1) 100%
+    );
+    width: 100%;
+    text-align: center;
+    box-shadow: 5px 5px 15px #446e8e;
+    padding:8px 0;
+  }
+  nav {
+    text-align: center;
+    margin-top: 10px;
+    position:absolute;
+    right:0;
+    bottom:46px;
+  }
+  nav a {
+    color:white;
+    text-decoration: none;
+    font-size: 22px;
+    margin: 8px;
+  }
+  /* BEGIN hero section */
+  .intro-content h1,
+  .intro-content p {
+    background-color: rgba(68, 110, 142, .8);
+    padding: 5px;
+    border-top-right-radius: 5px;
+    width: 50%;
+  }
+  h1 {
+    color: white;
+    position: relative;
+  }
+  
+  .hero-card {
+    width: 85%;
+    margin: 200px auto;
+    min-height: 500px;
+    border-radius: 5px;
+    text-align: left;
+  }
+  /* END hero section */
+  
+  /* BEGIN about section */
+  article#about {
+    background-color: rgba(255,255,255,.9);
+    color:black;
+    position:relative;
+    padding: 50px 0;
+  }
+  
+  .about-card {
+    width: 60%;
+    min-height: 300px;
+    text-align: left;
+    display: block;
+    margin:auto;
+    color: #446e8e
+  }
+  #about h2 {
+    color: #446e8e
+  }
+  #about div {
+    padding-right: 15px;
+  }
+  #about ul {
+    border-left: solid #446e8e 1px;
+  }
+  #about li {
+    list-style: none;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 22px 0px;
+  }
+  #about a {
+    color:#446e8e;
+    text-decoration: none;
+  }
+  /* END about section */
+  
+  /* BEGIN beaches section */
+  article#beaches {
+    background-color: white;
+    position:relative;
+    padding: 50px 0;
+  }
+  #beaches h2 {
+    color: #446e8e;
+    text-align: center;
+  
+  }
+  .beach-card {
+    min-height: 500px;
+    text-align: left;
+    display: block;
+  }
+  
+  .location {
+    color: white;
+    width: 90%;
+    display: block;
+    margin: auto;
+    padding:10px;
+    background: rgb(171,198, 230);
+    background: linear-gradient(
+      212deg,
+      rgba(171,198, 230, 1) 0%,
+      rgba(68, 110, 142, 1) 52%,
+      rgba(171,198, 230, 1) 100%
+    );
+  }
+  .location h3 {
+    font-size:22px;
+    text-transform: uppercase;
+  }
+  
+  .beach-card li {
+    list-style: none;
+    font-size: 18px;
+    line-height: 16px;
+    padding: 22px 0px;
+  }
+  
+  /* END beaches section */
+  
+  /* START blog and science section */
+  article#connect,
+  article#blog {
+    background-color: rgba(255,255,255,.9);
+    position:relative;
+    padding: 50px 0;
+  }
+  
+  .blog-card {
+    min-height: 300px;
+    text-align: left;
+    display: block;
+    margin:auto;
+    color: #446e8e
+  }
+  
+  .login-card,
+  .science {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+  
+  #blog h2 {
+    color: #446e8e
+  }
+  #blog div {
+    padding-right: 15px;
+  }
+  #blog ul {
+    border-left: solid #446e8e 1px;
+  }
+  #blog li {
+    list-style: none;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 22px 0px;
+  }
+  #blog a {
+    color:#446e8e;
+    text-decoration: none;
+  }
+  
+  article#connect {
+    box-shadow: 2px 8px 8px rgba(45,45,45,.8);
+  }
+  /* END blog and connect section */
+  /* START login form */
+  form {
+    width: 100%;
+  }
+  .form-input {
+    display: block;
+    margin:10px 0px;
+  }
+  form {
+    padding: 3px;
+  }
+  
+  button,
+  label,
+  .login h2 {
+    text-align: left;
+    color:black;
+  }
+  /* END login form */
+  
+  footer {
+    position: relative;
+    padding: 0 20px;
+  }
+  
+  @media screen and (max-width:600px) {
+    .pure-u-1-3,
+    .pure-u-1-4,
+    .pure-u-11-24,
+    .pure-u-2-3 {
+      display: block;
+      width: 80%;
+    }
+    header {
+      position:relative;
+    }
+  }
+  
