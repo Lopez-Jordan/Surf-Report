@@ -1,0 +1,17 @@
+{{each Locations as |cards|}}
+<div id="{{card.id}}" class="pure-u-1-3 beach-card">
+        <div class="location">
+            <h3 id="search">Tofino</h3>
+            <div class="featured-img beach-2"></div>
+            <ul data-aos="fade-up"
+            data-aos-duration="2000">
+                <li>WAVE HEIGHT: <span id="wave">{{cards.waveHeight}}</span></li>
+                <li>SWELL DIRECTION: <span id="swell">{{cards.waveDirection}}</span></li>
+                <li>SWELL PERIOD: <span id="period">{{cards.wavePeriod}}</span></li>
+            </ul>         
+        </div>
+</div>
+{{/each}}
+
+{{!-- make a button on the card to delete it,
+make a button on the card to update description --}}
