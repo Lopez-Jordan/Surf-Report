@@ -53,6 +53,13 @@ async function fetchLocationData(lat, long) {
 
 }
 
+module.exports = {
+    fetchLocationData,
+    degreesToCardinal,
+    avgWave
+};
+
+
 async function main() {
     const result = await fetchLocationData(33.426, -117.611);
     console.log(result);
