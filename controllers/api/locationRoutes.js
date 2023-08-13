@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-const {Surfer, Location, SurferLocation} = require('../models');
+const {Location, SurferLocation} = require('../models');
 
 router.post('/location', async (req,res)=>{
     try{
@@ -57,35 +57,6 @@ router.delete('/location/:id', async (req,res)=>{   //  /api/location/:id
         res.status(400).json(error);
     }
 });     
-
-
-
-
-
-
-
-// ur really deleting the association nothing else
-
-
-    //   const { surferId, locationId } = req.params;
-  
-    //   const surferLocation = await SurferLocation.findOne({
-    //     where: { SurferId: surferId, LocationId: locationId }
-    //   });
-  
-    //   if (!surferLocation) {
-    //     return res.status(404).json({ error: 'Visited location not found' });
-    //   }
-  
-    //   await surferLocation.destroy();
-    //   res.json({ message: 'Visited location deleted' });
-    // } catch (error) {
-    //   res.status(500).json({ error: 'Error deleting visited location' });
-    // }
-
-  
-
-
 
 module.exports = router;
 
