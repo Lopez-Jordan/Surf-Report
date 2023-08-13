@@ -41,6 +41,14 @@ router.get('/signup', async (req,res)=>{    // DONE (not tested)
 
 router.post('/signup', async (req,res)=>{   // DONE (not tested)
     try{
+        const existingSurfer = await Surfer.findOne({
+            where: {
+                name: req.body.name
+            }
+        });
+        if (existingSurfer) {
+            return res.status(409).json({ message: 'User with this name already exists.' });
+        }
         const newSurfer = Surfer.create({
             name: req.body.name,
             password: req.body.password
