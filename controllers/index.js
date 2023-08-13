@@ -2,11 +2,11 @@ const router = require('express').Router();
 const apiRoutes = require('./api');
 const {Surfer, Location, SurferLocation} = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => {       // DONE (not tested)
     try {
         let allLocations = [];
         if (req.session.surferId) {
-            allLocations = await Location.findAll({
+            allLocations = await Location.findAll({ // render homepage with all cards associated with one surfer
                 include: [
                     {
                         model: Surfer,
@@ -31,10 +31,10 @@ router.get('/', async (req, res) => {
     }
 });
 
-// render homepage with all cards 
-
-
 
 router.use('/api', apiRoutes);
 
 module.exports = router;
+
+
+
