@@ -56,7 +56,8 @@ router.post('/signup', async (req,res)=>{   // DONE (not tested)
     }
 });
 
-router.post('/logout', (req, res)=>{    // DONE (not tested)
+
+router.post('/logout',(req, res)=>{    // DONE (not tested)
     if (req.session.loggedIn) {
         req.session.destroy(()=>{
         res.status(200).redirect('/login').end();
@@ -65,5 +66,6 @@ router.post('/logout', (req, res)=>{    // DONE (not tested)
       res.status(400).end();
     }
   });
+
 
 module.exports = router;
