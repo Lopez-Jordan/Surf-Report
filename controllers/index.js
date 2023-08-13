@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const apiRoutes = require('./api');
+const apiRoutes = require('./api/locationRoutes');
 const {Surfer, Location, SurferLocation} = require('../models');
 const {fetchLocationData, degreesToCardinal, avgWave } = require('../utils/convertLocation');
 
