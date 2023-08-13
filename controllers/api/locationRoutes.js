@@ -20,7 +20,29 @@ router.post('/location', async (req,res)=>{
     }
 });
 
-router.put('/location/:id');    //  /api/location/:id
+router.put('/location/:id', async (req,res)=>{
+    try{
+        const locationId = req.params.id;
+        const [updatedLocation] = await Location.update(
+            {
+                description: req.body.description
+            },
+            {
+                where: {
+                    id: locationId
+                }
+            }
+        );
+        if (updatedLocation === 0) {
+            return res.status(404).json({ message: 'Location not found.' });
+        }
+        res.status(200).json({message: 'Success!'});
+    } catch (error){
+        res.status(400).json(error);
+    }
+}); 
+
+//  /api/location/:id
 // normal
 
 
