@@ -1,34 +1,66 @@
-{{!-- signup page here --}}
+<header data-aos="fade-down"
+     data-aos-duration="1000" class="pure-g">
+      <span class="pure-u-1-3"><img width="300px" height="auto" src="assets/images/sr-logo.png" alt="Surf Report logo"/></span>
+      <nav class="pure-u-2-3">
+        {{!-- home, beaches, blog, connections, logout --}}
+        <a href="index.html">Home</a>
+        {{#if loggedIn}}
+        <a href="index.html#beaches">Beaches</a>
+        <a href="index.html#blog">Blog</a>
+          <a href="index.html#connect">Connections</a>
+        <a href="/logout">Logout</a>
+        {{else}}
+         <a href="index.html#blog">Blog</a>
+          <a href="index.html#connect">Connections</a>
+          <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+     </header>
 
-     <article id="login">
-      <hr data-aos="fade-up"
-      data-aos-duration="2000" style="width: 95%;">
+        <main class="pure-g signup-bg">
+            <div class="pure-u-1-3"></div>
+            <section class="pure-u-1-3"><!-- START LOGIN SECTION -->
+        <h1></h1>
+        <article id="login">
+      
+            <section data-aos="fade-up"
+            data-aos-duration="2000" class="pure-g">
+              <div class="pure-u login-card">
+                <div class="login">
+                  <p data-aos="fade-up"
+                  data-aos-duration="2000">
 
-      <section data-aos="fade-up"
-      data-aos-duration="2000" class="pure-g">
-        <div class="pure-u login-card">
-              <div class="pure-u-11-24">
-                <h2>Signup</h2>
-            
-                <form class="form signup-form">
-                  <div class="form-group">
-                    <label for="userName-signup">user name:</label>
-                    <input class="form-input" type="text" id="userName-signup" />
-                  </div>
-                  <div class="form-group">
-                    <label for="password-signup">password:</label>
-                    <input class="form-input" type="password" id="password-signup" />
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-primary" type="submit">signup</button>
-                  </div>
-                </form>
+
+                      <h2>Sign Up</h2>
+                  
+                      <form class="form login-form">
+                        <div class="form-group">
+                          <label for="email-login">email:</label>
+                          <input class="form-input" type="text" id="email-login" />
+                        </div>
+                        <div class="form-group">
+                          <label for="password-login">password:</label>
+                          <input class="form-input" type="password" id="password-login" />
+                        </div>
+                        <div class="form-group">
+                          <button class="btn btn-primary" type="submit">login</button>
+                        </div>
+                      </form>
+                    <script src="./js/login.js"></script>
+                  
+                    </p>        
+                </div>
               </div>
-            </div>
-            <script src="./js/login.js"></script>
-          </p>        
-          </div>
-        </div>
-    </section>
-   </article>
+          </section>
+         </article>
+         </section><!--END LOGIN SECTION-->
+        </main>
+<footer><p>Copyright 2024 - Surf Report</p></footer>
  
+    <script
+    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous"
+  ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./assets/js/script.js"></script>
