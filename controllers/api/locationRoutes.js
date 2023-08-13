@@ -34,7 +34,7 @@ router.put('/location/:id', async (req,res)=>{
             }
         );
         if (updatedLocation === 0) {
-            return res.status(404).json({ message: 'Location not found.' });
+            return res.status(404).json({ message: 'Location not found' });
         }
         res.status(200).json({message: 'Success!'});
     } catch (error){
@@ -42,11 +42,27 @@ router.put('/location/:id', async (req,res)=>{
     }
 }); 
 
-//  /api/location/:id
-// normal
+
+router.delete('/location/:id', async (req,res)=>{   //  /api/location/:id
+    try{
+        const locationId = req.params.id;
+        SurferLocation.destroy({
+            where: {
+                location_id: locationId
+            }
+        })
+        res.status(200).json({message: 'success'});
+
+    }catch (error){
+        res.status(400).json(error);
+    }
+});     
 
 
-router.delete('/location/:id');     //  /api/location/:id
+
+
+
+
 
 // ur really deleting the association nothing else
 
