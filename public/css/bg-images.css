@@ -1,0 +1,32 @@
+.featured-img {
+    width:100%;
+    height: 300px;
+    background-image: url(../images/surfing-06.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  .beach-1 {
+    background-image: url(../images/surfing-06.jpg);
+  }
+  .beach-2 {
+    background-image: url(../images/surfing-12.jpg);
+  }
+  .beach-3 {
+    background-image: url(../images/surfing-04.jpg);
+  }
+  .blog-1 {
+    background-image: url(../images/moons.jpg);
+  }
+
+
+  .blog-2 {
+    background-image: url(../images/surfing-13.jpg);
+  }
+
+  .science-1 {
+    background-image: url(../images/shark.jpg);
+  }
+
+  .science-2 {
+    background-image: url(../images/storm.jpg);
+  }
