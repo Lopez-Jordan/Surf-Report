@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-const {Location, SurferLocation} = require('../models');
+const {Location, SurferLocation} = require('../../models');
 
 router.post('/location', async (req,res)=>{
     try{

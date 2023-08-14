@@ -1,12 +1,17 @@
 const router = require('express').Router();
-const { Surfer } = require('../models/surfer');
+const { Surfer } = require('../../models/surfer');
 
 router.get('/login', async (req,res)=>{     // DONE (not tested)
-    if(req.session.loggedIn){
-        res.status(200).redirect('/');
-        return;
+    try{
+        if(req.session.loggedIn){
+            res.status(200).redirect('/');
+            return;
+        }
+        res.status(200).render('login');
+    }catch (error){
+        res.status(400).json(error);
     }
-    res.status(200).render('login');
+
 });
 
 
