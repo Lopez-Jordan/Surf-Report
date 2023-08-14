@@ -60,20 +60,4 @@ module.exports = {
 };
 
 
-async function main() {
-    const result = await fetchLocationData(33.426, -117.611);
-    console.log(result);
-}
 
-main();
-
-// Virginia needs to dynamically generate cards from the fetch('/') Method: get 
-    // for card of `gotten cards` {
-            // let location = await fetchLocationData(card.lat, card.long)
-    //}
-
-
-
-
-// chris in his card handlebars 
-// {{#each Location as |location|}}
