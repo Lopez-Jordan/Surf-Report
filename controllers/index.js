@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const apiRoutes = require('./api/locationRoutes');
+const loginRoutes = require('./loginRoutes/loginRoutes');
+
 const {Surfer, Location, SurferLocation} = require('../models');
 const {fetchLocationData, degreesToCardinal, avgWave } = require('../utils/convertLocation');
+
 
 router.get('/', async (req, res) => {
     try {
@@ -49,6 +52,7 @@ router.get('/', async (req, res) => {
   });
 
 router.use('/api', apiRoutes);
+router.use(loginRoutes);
 
 module.exports = router;
 
