@@ -24,3 +24,31 @@ const loginFormHandler = async (event) => {
     }
   };
 
+
+
+  // SIGNUP
+  
+  const signupFormHandler = async (event) => {
+    event.preventDefault();
+  
+    // Collect input values from the signup form
+    const username = $('#username-signup').val.trim(); // TODO: CHANGE signup.handlebars line 38,39 id to "username-signup"
+    const password = $('#password-signup').val.trim(); // TODO: CHANGE signup.handlebars line 42,43 id to "password-signup"
+  
+    if (username && password) {
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        // If successful, redirect the browser URL to the intro page
+        document.location.replace('/');
+      } else {
+        alert("Error: Username Already Exists or Invalid Password"); 
+      }
+    }
+  };
+
+
