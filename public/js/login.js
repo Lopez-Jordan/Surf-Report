@@ -52,3 +52,8 @@ const loginFormHandler = async (event) => {
   };
 
 
+
+
+$('.login-form').on('submit', loginFormHandler);
+
+$('.signup-form').on('submit', signupFormHandler); // TODO: CHANGE signup.handlebars line 36 id to "signup-form"
