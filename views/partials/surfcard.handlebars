@@ -1,4 +1,5 @@
 {{#if loggedIn}}
+
 {{#each Locations as |card|}}
 <div id="{{card.id}}" class="pure-u-1-3 beach-card">
         <div class="location">
@@ -9,12 +10,14 @@
                 <li>WAVE HEIGHT: <span id="wave">{{card.waveHeight}}</span></li>
                 <li>SWELL DIRECTION: <span id="swell">{{card.waveDirection}}</span></li>
                 <li>SWELL PERIOD: <span id="period">{{card.wavePeriod}}</span></li>
+                <li>SURF JOURNAL: <span id="journal">{{card.description}}</span></li>
             </ul>  
             <hr>   
             <label data-aos="fade-up"
             data-aos-duration="2000" for="share">Share Your Experience</label>
             <textarea data-aos="fade-up"
             data-aos-duration="2000" type="text" id="share" name="share"></textarea>
+            <button id="updateJounal">Update Journal</button>
             <hr>   
         <p data-aos="fade-up" quidata-aos-duration="2000" id="trash"><i class="fa-regular fa-trash"></i> REMOVE LOCATION CARD</p>     
         </div>
