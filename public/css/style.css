@@ -163,7 +163,7 @@ html {
   color:white;
   text-transform: uppercase;
 }
-.location input {
+.location textarea {
   display:block;
   margin-top:10px;
   min-height: 100px;
