@@ -22,47 +22,22 @@ AOS.init({
   mirror: false, // whether elements should animate out while scrolling past them
   anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
 });
+
+// PRODUCE A DIFFERENT FEATURED-IMAGE FOR EACH CARD
+// Array of possible image filenames
+const imageCount = 50; // Number of images in the folder
+
+// Loop through each beach card and set a random background image
+const beachCards = document.querySelectorAll('.beach-card');
+beachCards.forEach(card => {
+  const featuredImgElement = card.querySelector('.featured-img');
+  const randomImageNumber = Math.floor(Math.random() * imageCount) + 1;
+  const randomImageSrc = `assets/images/surf/surfing-${randomImageNumber}.jpg`;
+  featuredImgElement.style.backgroundImage = `url(${randomImageSrc})`;
+});
+
 dayjs();
 var todayDate = dayjs().format("MM/DD/YYYY");
 
 var todayDateEl = (document.getElementById("todaysDate").textContent =
   todayDate);
-
-
-function unsplashAPI() {
-  var apiKey = "Ab4F25pH3_s49oNWOzNXoahqu18przepQm1JgDMKkZA";
-  var apiKey2 = "oeF6_nedrYDZgPYD3W22C9NSsJsCa0DeZfWTlHO7u2I";
-  var apiKey3 = "BhBNA4hLuZrHL_xWMeD4BgR-aMZgW07kKJhE4iDhk7E";
-
-  var requestURL =
-    "https://api.unsplash.com/photos/random?query=surf&client_id=" +
-    apiKey3;
-
-  fetch(requestURL)
-    .then((response) => response.json())
-    .then((data) => {
-
-      var photoUrl = data.urls.regular;
-
-      // document.body.querySelector('main article aside').style.backgroundImage =
-      // "url(" + photoUrl + ")";
-
-      document.body.setAttribute(
-        "style",
-        "background-image:url(" + photoUrl + ")"
-      );
- 
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-
-
-
-unsplashAPI();
-favoritesDisplay();
-// unsplashAPI();
-// https://api.unsplash.com/search/collections?page=1&query=office
-
-// Make a GET request to Unsplash API for a random photo
