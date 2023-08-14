@@ -49,8 +49,6 @@ async function fetchLocationData(lat, long) {
     } catch (error) {
     console.error('Fetch error:', error);
     }
-
-
 }
 
 module.exports = {
