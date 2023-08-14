@@ -19,7 +19,7 @@ router.post('/login', async (req,res)=>{    // DONE AND TESTED
     try{
         const surferData = await Surfer.findOne({ where: { name : req.body.name} });
         if(!surferData){
-            res.status(400).json({message: 'incorrect username!'});
+            res.status(400).json({message: 'no surfer exists with this username!'});
             return;
         }
         validPassword = await surferData.checkPassword(req.body.password);
