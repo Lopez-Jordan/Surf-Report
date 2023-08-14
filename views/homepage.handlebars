@@ -50,6 +50,9 @@
       </section>
      </article>
         <!-- START BEACHES SECTION -->
+        {{#if loggedIn}}
+        <button id="newBeach" href="/api/location"><i class="fa-solid fa-square-plus"></i> New Beach</button>
+        {{/if}}
     {{>surfcard}}
    <!-- START BLOG SECTION -->
    <article id="blog">
