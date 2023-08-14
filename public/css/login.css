@@ -1,0 +1,27 @@
+main {
+    padding-top: 200px;
+    padding-bottom: 150px;
+}
+form {
+    height: 300px;
+    display: block;
+}
+.login {
+    border: solid #446e8e 1px;
+    padding: 15px;;
+    background-color: rgba(255,255,255,.9);
+    border-top-right-radius: 10px;
+}
+
+.login-bg {
+    background-image: url(../images/surfing-13.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.signup-bg {
+    background-image: url(../images/surfing-12.jpg);
+    background-position: top-center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
