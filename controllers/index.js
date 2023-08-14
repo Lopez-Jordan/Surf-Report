@@ -2,11 +2,14 @@ const router = require('express').Router();
 const apiRoutes = require('./api/locationRoutes');
 const loginRoutes = require('./loginRoutes/loginRoutes');
 
-const {Surfer, Location, SurferLocation} = require('../models');
-const {fetchLocationData, degreesToCardinal, avgWave } = require('../utils/convertLocation');
+const Surfer = require('../models/surfer');
+const SurferLocation = require('../models/surferLocation');
+const Location = require('../models/location');
+
+const {fetchLocationData} = require('../utils/convertLocation');
 
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => {   // DONe PARTIALLY TESTED
     try {
       let allLocations = [];
       if (req.session.surferId) {
