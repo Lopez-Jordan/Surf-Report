@@ -153,13 +153,22 @@ html {
     font-size:22px;
     text-transform: uppercase;
   }
-  
-  .beach-card li {
-    list-style: none;
-    font-size: 18px;
-    line-height: 16px;
-    padding: 22px 0px;
-  }
+
+.location label,
+.beach-card li {
+  list-style: none;
+  font-size: 18px;
+  line-height: 16px;
+  padding: 22px 0px;
+  color:white;
+  text-transform: uppercase;
+}
+.location input {
+  display:block;
+  margin-top:10px;
+  min-height: 100px;
+  width: 90%;
+}
   
   /* END beaches section */
   
