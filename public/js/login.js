@@ -1,17 +1,17 @@
-// LOGIN 
+// LOGIN form submission
 
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect input values from the login form
-    const username = $('#username-login').val.trim();
+    const name = $('#username-login').val.trim();
     const password = $('#password-login').val.trim();
   
-    if (username && password) {
+    if (name && password) {
       // Send a POST request to the API endpoint
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/login', {
         method: 'POST',
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ name, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -25,20 +25,19 @@ const loginFormHandler = async (event) => {
   };
 
 
-
-  // SIGNUP
+  // SIGNUP form submission
   
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect input values from the signup form
-    const username = $('#username-signup').val.trim(); // TODO: CHANGE signup.handlebars line 38,39 id to "username-signup"
-    const password = $('#password-signup').val.trim(); // TODO: CHANGE signup.handlebars line 42,43 id to "password-signup"
+    const name = $('#username-signup').val.trim(); 
+    const password = $('#password-signup').val.trim(); 
   
     if (username && password) {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/signup', {
         method: 'POST',
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ name, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -52,8 +51,8 @@ const loginFormHandler = async (event) => {
   };
 
 
+// Event Listeners for form submission
 
+$('.login-form').on('submit', loginFormHandler); 
 
-$('.login-form').on('submit', loginFormHandler);
-
-$('.signup-form').on('submit', signupFormHandler); // TODO: CHANGE signup.handlebars line 36 id to "signup-form"
+$('.signup-form').on('submit', signupFormHandler);
