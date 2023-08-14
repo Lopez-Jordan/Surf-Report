@@ -32,7 +32,7 @@ const beachCards = document.querySelectorAll('.beach-card');
 beachCards.forEach(card => {
   const featuredImgElement = card.querySelector('.featured-img');
   const randomImageNumber = Math.floor(Math.random() * imageCount) + 1;
-  const randomImageSrc = `assets/images/surf/surfing-${randomImageNumber}.jpg`;
+  const randomImageSrc = `/images/surf/surfing-${randomImageNumber}.jpg`;
   featuredImgElement.style.backgroundImage = `url(${randomImageSrc})`;
 });
 
