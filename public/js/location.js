@@ -1,3 +1,43 @@
+// event listener for the create New Beach button (refer to the homepage.handlebars file)
+document.addEventListener('DOMContentLoaded', function () {
+  const newBeachButton = document.getElementById('newBeach');
+  
+  newBeachButton.addEventListener('click', function () {
+    // prompt user to insert latitude and longitude upon clicking the newBeach button
+      const latitude = prompt('Enter latitude:');
+      const longitude = prompt('Enter longitude:');
+
+      if (latitude !== null && longitude !== null) {
+        const locationData = {
+          latitude: parseFloat(latitude),
+          longitude: parseFloat(longitude)
+      };
+
+      fetch('/api/location', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(locationData)
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log('Location data sent successfully:', data);
+      })
+      .catch(error => {
+          console.error('Error sending location data:', error);
+      });
+  }
+});
+});
+
+
+
+
+
+
+
+
 
 
 
