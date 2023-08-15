@@ -66,3 +66,4 @@ favoritesDisplay();
 // https://api.unsplash.com/search/collections?page=1&query=office
 
 // Make a GET request to Unsplash API for a random photo
+
