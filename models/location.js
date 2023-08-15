@@ -15,14 +15,17 @@ Location.init(
         },
         description: {
             type: DataTypes.STRING,
+            unique: true
         },
         lat: {
-            type: DataTypes.FLOAT,
-            allowNull: false
+            type: DataTypes.DOUBLE,
+            allowNull: false,
+            unique: true
         },
         long: {
-            type: DataTypes.FLOAT,
-            allowNull: false
+            type: DataTypes.DOUBLE,
+            allowNull: false,
+            unique: true
         }
     },
     {
@@ -35,3 +38,4 @@ Location.init(
 )
 
 module.exports = Location;
+

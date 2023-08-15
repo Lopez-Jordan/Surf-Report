@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { Surfer } = require('../../models/surfer');
+const Surfer = require('../../models/surfer');
 
-router.get('/login', async (req,res)=>{     // DONE (not tested)
+router.get('/login', async (req,res)=>{     // DONE AND TESTED
     try{
         if(req.session.loggedIn){
             res.status(200).redirect('/');
@@ -15,11 +15,11 @@ router.get('/login', async (req,res)=>{     // DONE (not tested)
 });
 
 
-router.post('/login', async (req,res)=>{    // DONE (not tested)
+router.post('/login', async (req,res)=>{    // DONE AND TESTED
     try{
         const surferData = await Surfer.findOne({ where: { name : req.body.name} });
         if(!surferData){
-            res.status(400).json({message: 'incorrect username!'});
+            res.status(400).json({message: 'no surfer exists with this username!'});
             return;
         }
         validPassword = await surferData.checkPassword(req.body.password);
@@ -39,12 +39,12 @@ router.post('/login', async (req,res)=>{    // DONE (not tested)
 });   
 
 
-router.get('/signup', async (req,res)=>{    // DONE (not tested)
+router.get('/signup', async (req,res)=>{    // DONE AND TESTED
     res.status(200).render('signup');
 });
 
 
-router.post('/signup', async (req,res)=>{   // DONE (not tested)
+router.post('/signup', async (req,res)=>{   // DONE AND TESTED
     try{
         const existingSurfer = await Surfer.findOne({
             where: {
@@ -54,15 +54,17 @@ router.post('/signup', async (req,res)=>{   // DONE (not tested)
         if (existingSurfer) {
             return res.status(409).json({ message: 'User with this name already exists.' });
         }
-        const newSurfer = Surfer.create({
+        const newSurfer = await Surfer.create({
             name: req.body.name,
             password: req.body.password
         });
+
         req.session.save(() => {
             req.session.surferId = newSurfer.id;
             req.session.loggedIn = true;
             res.status(200).json(newSurfer);
         });
+        res.status(200).json(newSurfer);
     } 
     catch (error){
         res.status(400).json(error);
