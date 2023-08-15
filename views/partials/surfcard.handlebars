@@ -10,13 +10,24 @@
                 <li>SWELL DIRECTION: <span id="swell">{{card.waveDirection}}</span></li>
                 <li>SWELL PERIOD: <span id="period">{{card.wavePeriod}}</span></li>
             </ul>  
+            {{!-- <hr>created div to display the comments    --}}
+            <div id="display-comment"></div>
+            <hr>
+            {{!-- wrapped div and created button to add/update description --}}
+            <div id="commentForm" data-card-id="{{card.id}}">
+                <label data-aos="fade-up"
+                data-aos-duration="2000" for="share">Share Your Experience</label>
+                <textarea data-aos="fade-up"
+                data-aos-duration="2000" type="text" id="input-comment" name="share"></textarea>
+                <button class="btn btn-primary" id="share-btn" type="submit">Add Description</button>
+            </div>
             <hr>   
-            <label data-aos="fade-up"
-            data-aos-duration="2000" for="share">Share Your Experience</label>
-            <textarea data-aos="fade-up"
-            data-aos-duration="2000" type="text" id="share" name="share"></textarea>
-            <hr>   
-        <p data-aos="fade-up" quidata-aos-duration="2000" id="trash"><i class="fa-regular fa-trash"></i> REMOVE LOCATION CARD</p>     
+            {{!-- created button to delete card with id="delete-button" --}}
+            {{!-- verify if the copied attributes are applicable: class="form-group" and class="btn btn-primary" --}}
+            <div class="form-group"> 
+                <p data-aos="fade-up" quidata-aos-duration="2000" id="trash"><i class="fa-regular fa-trash"></i> REMOVE LOCATION CARD</p>     
+                <button class="btn btn-primary" id="trash" type="submit">Delete</button>
+            </div>
         </div>
 </div>
 {{/each}}
@@ -24,3 +35,5 @@
 
 {{!-- make a button on the card to delete it,
 make a button on the card to update description --}}
+
+

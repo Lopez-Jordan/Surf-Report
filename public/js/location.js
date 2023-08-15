@@ -1,49 +1,35 @@
-// IN PROGRESS
 
-// const newFormHandler = async (event) => {
-//     event.preventDefault();
-  
-//     const name = document.querySelector('#project-name').value.trim();
-//     const description = document.querySelector('#project-desc').value.trim();
-  
-//     if (name && needed_funding && description) {
-//       const response = await fetch(`/api/projects`, {
-//         method: 'POST',
-//         body: JSON.stringify({ name, needed_funding, description }),
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-  
-//       if (response.ok) {
-//         document.location.replace('/profile');
-//       } else {
-//         alert('Failed to create project');
-//       }
-//     }
-//   };
-  
-//   const delButtonHandler = async (event) => {
-//     if (event.target.hasAttribute('data-id')) {
-//       const id = event.target.getAttribute('data-id');
-  
-//       const response = await fetch(`/api/projects/${id}`, {
-//         method: 'DELETE',
-//       });
-  
-//       if (response.ok) {
-//         document.location.replace('/profile');
-//       } else {
-//         alert('Failed to delete project');
-//       }
-//     }
-//   };
-  
-//   document
-//     .querySelector('.new-project-form')
-//     .addEventListener('submit', newFormHandler);
-  
-//   document
-//     .querySelector('.project-list')
-//     .addEventListener('click', delButtonHandler);
-  
+
+
+// Event listener for submit and display comment (refer to the surfcard.handlebars file)
+$(document).ready(function() {
+  $("#commentForm").on("submit", function(event) {
+    event.preventDefault();
+    // Extract the comment input from the form
+    const inputComment = $("#input-comment").val();
+     // Display the comment on the page
+    const sharedTextElement = $("#display-comment");
+    sharedTextElement.text(inputComment);
+  });
+});
+
+// Get the card ID from the data attribute of the comment form
+var cardId = $(this).data("card-id"); // This seem to be the right way to retrieve {{card.id}}, see commentForm div in handlebar file
+
+ // Prepare the comment data object to send to the server
+   const commentData = {
+     comment: inputComment,
+     cardId: cardId
+   };
+
+
+
+
+
+
+
+
+
+//event listener for delete location
+// $('#trash').on('submit', deleteLocation);
+
