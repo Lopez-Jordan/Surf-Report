@@ -41,3 +41,26 @@ var todayDate = dayjs().format("MM/DD/YYYY");
 
 var todayDateEl = (document.getElementById("todaysDate").textContent =
   todayDate);
+
+  // city location lat and long finder function - created by Jordan
+  async function getLocationData(name) {
+    var url = "https://api.openweathermap.org/geo/1.0/direct?q=" + name + "&limit=5&appid=9bce6875713db412816a04531af13ead";
+    var newResponse = await fetch(url);
+    var response = await newResponse.json();
+    return response;
+  }
+  document.getElementById("cityForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const cityNameInput = document.getElementById("cityName");
+    const locationResult = document.getElementById("locationResult");
+    try {
+      const cityName = cityNameInput.value;
+      const locationData = await getLocationData(cityName);
+      const latitude = locationData[0]?.lat;
+      const longitude = locationData[0]?.lon;
+      locationResult.innerHTML = `Latitude: ${latitude}<br>Longitude: ${longitude}`;
+    } catch (error) {
+      locationResult.innerHTML = "An error occurred while fetching data.";
+      console.error("An error occurred:", error);
+    }
+  });

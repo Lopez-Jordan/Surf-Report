@@ -3,7 +3,7 @@ main.login-bg, main.signup-bg{
     padding-bottom: 150px;
 }
 form {
-    height: 300px;
+    min-height: 300px;
     display: block;
 }
 .login {
