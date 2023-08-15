@@ -29,14 +29,28 @@
                 <li>SWELL PERIOD: <span id="period">{{card.wavePeriod}}</span></li>
                 <li>SURF JOURNAL: <span id="journal">{{card.description}}</span></li>
             </ul>  
+            {{!-- <hr>created div to display the comments    --}}
+            <div id="display-comment"></div>
+            <hr>
+            {{!-- wrapped div and created button to add/update description --}}
+            <div id="commentForm" data-card-id="{{card.id}}">
+                <label data-aos="fade-up"
+                data-aos-duration="2000" for="share">Share Your Experience</label>
+                <textarea data-aos="fade-up"
+                data-aos-duration="2000" type="text" id="input-comment" name="share"></textarea>
+                <button class="btn btn-primary" id="share-btn" type="submit">Add Description</button>
+            </div>
             <hr>   
+            <div class="form-group"> 
+                <p data-aos="fade-up" quidata-aos-duration="2000" id="trash"><i class="fa-regular fa-trash"></i> REMOVE LOCATION CARD</p>     
+                <button class="btn btn-primary" id="trash" type="submit">Delete</button>
+            </div>
+
             <label data-aos="fade-up"
             data-aos-duration="2000" for="share">Share Your Experience</label>
             <textarea data-aos="fade-up"
             data-aos-duration="2000" type="text" id="share" name="share"></textarea>
-            <button id="updateJounal">Update Journal</button>
-            <hr>   
-        <p data-aos="fade-up" quidata-aos-duration="2000" id="trash"><i class="fa-regular fa-trash"></i> REMOVE LOCATION CARD</p>     
+            <button id="updateJounal">Update Journal</button>    
         </div>
 </div>
 {{/each}}
@@ -44,3 +58,5 @@
 
 {{!-- make a button on the card to delete it,
 make a button on the card to update description --}}
+
+
