@@ -2,9 +2,7 @@ const router = require('express').Router();
 const apiRoutes = require('./api/locationRoutes');
 const loginRoutes = require('./loginRoutes/loginRoutes');
 
-const Surfer = require('../models/surfer');
-const SurferLocation = require('../models/surferLocation');
-const Location = require('../models/location');
+const {Surfer, Location, SurferLocation} = require('../models');
 
 const {fetchLocationData} = require('../utils/convertLocation');
 
