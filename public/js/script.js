@@ -72,34 +72,41 @@ function unsplashAPI() {
     });
 }
 
-
-
 unsplashAPI();
-favoritesDisplay();
-// unsplashAPI();
-// https://api.unsplash.com/search/collections?page=1&query=office
 
-// Make a GET request to Unsplash API for a random photo
 
-  // city location lat and long finder function - created by Jordan
+
   async function getLocationData(name) {
     var url = "https://api.openweathermap.org/geo/1.0/direct?q=" + name + "&limit=5&appid=9bce6875713db412816a04531af13ead";
     var newResponse = await fetch(url);
     var response = await newResponse.json();
     return response;
   }
+  
   document.getElementById("cityForm").addEventListener("submit", async function(event) {
     event.preventDefault();
     const cityNameInput = document.getElementById("cityName");
     const locationResult = document.getElementById("locationResult");
+  
     try {
       const cityName = cityNameInput.value;
       const locationData = await getLocationData(cityName);
       const latitude = locationData[0]?.lat;
       const longitude = locationData[0]?.lon;
-      locationResult.innerHTML = `Latitude: ${latitude}<br>Longitude: ${longitude}`;
+  
+      // Create new elements to display latitude and longitude
+      const newLatEl = document.createElement("p");
+      newLatEl.innerHTML = `Latitude: ${latitude}`;
+  
+      const newLongEl = document.createElement("p");
+      newLongEl.innerHTML = `Longitude: ${longitude}`;
+  
+      // Clear previous content and append new elements
+      locationResult.innerHTML = "";
+      locationResult.appendChild(newLatEl);
+      locationResult.appendChild(newLongEl);
     } catch (error) {
-      locationResult.innerHTML = "An error occurred while fetching data.";
-      console.error("An error occurred:", error);
+      alert("Error fetching location data: " + error.message);
     }
   });
+  

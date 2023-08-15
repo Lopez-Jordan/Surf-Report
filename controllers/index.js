@@ -11,9 +11,9 @@ const {fetchLocationData} = require('../utils/convertLocation');
 
 router.get('/', async (req, res) => {
   try {
-    let allLocations = [];
+    let locationsWithWaveData = [];
     if (req.session.surferId) {
-      allLocations = await Location.findAll({
+      const allLocations = await Location.findAll({
         include: [
           {
             model: Surfer,
@@ -26,28 +26,31 @@ router.get('/', async (req, res) => {
           }
         ]
       });
-    }
 
-    const locationsWithWaveData = await Promise.all(
-      allLocations.map(async (location) => {
-        const waveData = await fetchLocationData(location.lat, location.long);
-        return {
-          ...location.get({ plain: true }), // Convert to plain object
-          waveHeight: waveData.waveHeight,
-          wavePeriod: waveData.wavePeriod,
-          waveDirection: waveData.waveDirection
-        };
-      })
-    );
+      if (allLocations.length > 0) {
+        locationsWithWaveData = await Promise.all(
+          allLocations.map(async (location) => {
+            const waveData = await fetchLocationData(location.lat, location.long);
+            return {
+              ...location.get({ plain: true }), // Convert to plain object
+              waveHeight: waveData.waveHeight,
+              wavePeriod: waveData.wavePeriod,
+              waveDirection: waveData.waveDirection
+            };
+          })
+        );
+      }
+    }
 
     res.status(200).render('homepage', {
       Locations: locationsWithWaveData, // Use the merged data
       loggedIn: req.session.loggedIn
     });
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json(req.session);
   }
 });
+
 
 
 router.use('/api', apiRoutes);
