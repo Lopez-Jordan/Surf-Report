@@ -28,11 +28,11 @@
   ### Developer Information:
   - Chris Larson
   - GitHub URL: https://github.com/chlarson74
-  - e-mail address: virginiacdefreitas@gmail.com
+  - e-mail address: chlarson@everettcc.edu
 
   - Jordan Lopez
   - GitHub URL: https://github.com/lopez-jordan
-  - e-mail address: virginiacdefreitas@gmail.com
+  - e-mail address: jordanlopezemail@gmail.com
 
   - Virginia Freitas
   - GitHub URL: https://github.com/virginiafreitas
