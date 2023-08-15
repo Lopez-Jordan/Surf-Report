@@ -1,18 +1,24 @@
+// Function to generate a random ID for each location
+function generateRandomId() {
+  return Math.floor(Math.random() * 100000); // Adjust the range as needed
+}
+
 // event listener for the create New Beach button (refer to the homepage.handlebars file)
 document.addEventListener('DOMContentLoaded', function () {
   const newBeachButton = document.getElementById('newBeach');
   
   newBeachButton.addEventListener('click', function () {
-    // prompt user to insert latitude and longitude upon clicking the newBeach button
+    // prompt user to insert id, latitude and longitude upon clicking the newBeach button
       const latitude = prompt('Enter latitude:');
       const longitude = prompt('Enter longitude:');
 
       if (latitude !== null && longitude !== null) {
         const locationData = {
+          id: generateRandomId(),
           latitude: parseFloat(latitude),
           longitude: parseFloat(longitude)
       };
-
+  //send lat and long to backend
       fetch('/api/location', {
           method: 'POST',
           headers: {
@@ -30,12 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 });
-
-
-
-
-
-
 
 
 
