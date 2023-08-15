@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {   // DONe PARTIALLY TESTED
   
         res.status(200).render('homepage', {
           Locations: locationsWithWaveData,
-          loggedIn: req.session.loggedIn
+          loggedIn: true // req.session.loggedIn
         });
 
     } catch (error) {
