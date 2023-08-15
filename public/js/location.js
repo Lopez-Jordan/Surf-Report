@@ -22,6 +22,25 @@ var cardId = $(this).data("card-id"); // This seem to be the right way to retrie
      cardId: cardId
    };
 
+   // Send the comment data to the server 
+   fetch(`/api/location/${cardId}`, {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json"
+     },
+     body: JSON.stringify(commentData)
+   })
+   .then(response => response.json())
+   .then(data => {
+     console.log("Comment added successfully:", data);
+   })
+   .catch(error => {
+     console.error("Error adding comment:", error);
+   });
+
+
+
+
 
 
 
