@@ -15,7 +15,6 @@ Location.init(
         },
         description: {
             type: DataTypes.STRING,
-            unique: true
         },
         lat: {
             type: DataTypes.DOUBLE,

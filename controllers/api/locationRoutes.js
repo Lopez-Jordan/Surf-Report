@@ -12,8 +12,8 @@ router.post('/location', async (req, res) => {
         });
 
         const newSurferLocation = await SurferLocation.create({
-            surfer_id: req.body.surferId,    //CHANGE HERE req.session.surferId,
-            location_id: req.body.locationId     // newLocation.id
+            surfer_id: req.session.surferId,    //CHANGE HERE req.session.surferId,
+            location_id: newlocationId     // newLocation.id
         });
         if (!newSurferLocation) {
             return res.status(400).json({ message: "This location is already associated with the surfer!" });
@@ -39,7 +39,7 @@ router.put('/location/:id', async (req, res) => {
         if (!existingLocation) {
             return res.status(404).json({ message: 'Location not found' });
         }
-        const newDescription = existingLocation.description + '\n' + req.body.description;
+        const newDescription = existingLocation.description + ' ' + req.body.description;
 
         // Update the location's description
         await Location.update(
@@ -71,7 +71,7 @@ router.delete('/location/:id', async (req, res) => {    // DONE AND TESTED
         if (deletedRows > 0) {
             res.status(200).json({ message: 'Success' });
         } else {
-            res.status(404).json({ message: 'No matching locations found' });
+            res.status(404).json({ message: 'No matching ASSOCIATIONS found' });
         }
     } catch (error) {
         res.status(400).json(error);

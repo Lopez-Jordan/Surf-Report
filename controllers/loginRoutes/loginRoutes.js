@@ -64,7 +64,6 @@ router.post('/signup', async (req,res)=>{   // DONE AND TESTED
             req.session.loggedIn = true;
             res.status(200).json(newSurfer);
         });
-        res.status(200).json(newSurfer);
     } 
     catch (error){
         res.status(400).json(error);
@@ -75,7 +74,7 @@ router.post('/signup', async (req,res)=>{   // DONE AND TESTED
 router.post('/logout',(req, res)=>{    // DONE (not tested)
     if (req.session.loggedIn) {
         req.session.destroy(()=>{
-        res.status(200).redirect('/login').end();
+        res.status(200).redirect('/').end();
         });
     } else {
       res.status(400).end();

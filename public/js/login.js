@@ -4,19 +4,18 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect input values from the login form
-    const name = $('#username-login').val.trim();
-    const password = $('#password-login').val.trim();
-  
-    if (name && password) {
+    const newname = $('#username-login').val().trim();
+    const newpassword = $('#password-login').val().trim();
+    if (newname && newpassword) {
       // Send a POST request to the API endpoint
       const response = await fetch('/login', {
         method: 'POST',
-        body: JSON.stringify({ name, password }),
+        body: JSON.stringify({ name: newname, password: newpassword }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        // If successful, redirect the browser URL to the intro page
+        alert('success!');
         document.location.replace('/');
       } else {
         alert("Error: Invalid Username or Password");
@@ -31,18 +30,17 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect input values from the signup form
-    const name = $('#username-signup').val.trim(); 
-    const password = $('#password-signup').val.trim(); 
-  
-    if (username && password) {
+    const newname = $('#username-signup').val().trim(); 
+    const newpassword = $('#password-signup').val().trim(); 
+    if (newname && newpassword) {
       const response = await fetch('/signup', {
         method: 'POST',
-        body: JSON.stringify({ name, password }),
+        body: JSON.stringify({ name: newname, password : newpassword}),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        // If successful, redirect the browser URL to the intro page
+        alert('success');
         document.location.replace('/');
       } else {
         alert("Error: Username Already Exists or Invalid Password"); 

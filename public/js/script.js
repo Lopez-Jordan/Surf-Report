@@ -22,6 +22,20 @@ AOS.init({
   mirror: false, // whether elements should animate out while scrolling past them
   anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
 });
+
+// PRODUCE A DIFFERENT FEATURED-IMAGE FOR EACH CARD
+// Array of possible image filenames
+const imageCount = 50; // Number of images in the folder
+
+// Loop through each beach card and set a random background image
+const beachCards = document.querySelectorAll('.beach-card');
+beachCards.forEach(card => {
+  const featuredImgElement = card.querySelector('.featured-img');
+  const randomImageNumber = Math.floor(Math.random() * imageCount) + 1;
+  const randomImageSrc = `/images/surf/surfing-${randomImageNumber}.jpg`;
+  featuredImgElement.style.backgroundImage = `url(${randomImageSrc})`;
+});
+
 dayjs();
 var todayDate = dayjs().format("MM/DD/YYYY");
 
@@ -58,11 +72,41 @@ function unsplashAPI() {
     });
 }
 
-
-
 unsplashAPI();
-favoritesDisplay();
-// unsplashAPI();
-// https://api.unsplash.com/search/collections?page=1&query=office
 
-// Make a GET request to Unsplash API for a random photo
+
+
+  async function getLocationData(name) {
+    var url = "https://api.openweathermap.org/geo/1.0/direct?q=" + name + "&limit=5&appid=9bce6875713db412816a04531af13ead";
+    var newResponse = await fetch(url);
+    var response = await newResponse.json();
+    return response;
+  }
+  
+  document.getElementById("cityForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const cityNameInput = document.getElementById("cityName");
+    const locationResult = document.getElementById("locationResult");
+  
+    try {
+      const cityName = cityNameInput.value;
+      const locationData = await getLocationData(cityName);
+      const latitude = locationData[0]?.lat;
+      const longitude = locationData[0]?.lon;
+  
+      // Create new elements to display latitude and longitude
+      const newLatEl = document.createElement("p");
+      newLatEl.innerHTML = `Latitude: ${latitude}`;
+  
+      const newLongEl = document.createElement("p");
+      newLongEl.innerHTML = `Longitude: ${longitude}`;
+  
+      // Clear previous content and append new elements
+      locationResult.innerHTML = "";
+      locationResult.appendChild(newLatEl);
+      locationResult.appendChild(newLongEl);
+    } catch (error) {
+      alert("Error fetching location data: " + error.message);
+    }
+  });
+  
