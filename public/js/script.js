@@ -22,6 +22,20 @@ AOS.init({
   mirror: false, // whether elements should animate out while scrolling past them
   anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
 });
+
+// PRODUCE A DIFFERENT FEATURED-IMAGE FOR EACH CARD
+// Array of possible image filenames
+const imageCount = 50; // Number of images in the folder
+
+// Loop through each beach card and set a random background image
+const beachCards = document.querySelectorAll('.beach-card');
+beachCards.forEach(card => {
+  const featuredImgElement = card.querySelector('.featured-img');
+  const randomImageNumber = Math.floor(Math.random() * imageCount) + 1;
+  const randomImageSrc = `/images/surf/surfing-${randomImageNumber}.jpg`;
+  featuredImgElement.style.backgroundImage = `url(${randomImageSrc})`;
+});
+
 dayjs();
 var todayDate = dayjs().format("MM/DD/YYYY");
 
