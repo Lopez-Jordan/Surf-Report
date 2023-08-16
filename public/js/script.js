@@ -36,12 +36,17 @@ beachCards.forEach(card => {
   featuredImgElement.style.backgroundImage = `url(${randomImageSrc})`;
 });
 
+// dayjs();
+// var todayDate = dayjs().format("MM/DD/YYYY");
+
+// var todayDateEl = (document.getElementById("todaysDate").textContent =
+//   todayDate);
+
 dayjs();
 var todayDate = dayjs().format("MM/DD/YYYY");
 
-var todayDateEl = (document.getElementById("todaysDate").textContent =
-  todayDate);
-
+var todayDateEl = document.getElementById("todaysDate");
+todayDateEl.textContent = todayDate;
 
 function unsplashAPI() {
   var apiKey = "Ab4F25pH3_s49oNWOzNXoahqu18przepQm1JgDMKkZA";
@@ -110,3 +115,11 @@ unsplashAPI();
     }
   });
   
+  document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+  
+    hamburger.addEventListener("click", function() {
+      menu.classList.toggle("active");
+    });
+  });

@@ -45,7 +45,7 @@ header {
   box-shadow: 5px 5px 15px #446e8e;
   padding:8px 0;
 }
-nav {
+.desktop-nav {
   text-align: center;
   margin-top: 10px;
   position:absolute;
@@ -58,16 +58,64 @@ nav a {
   font-size: 22px;
   margin: 8px;
 }
+
+/* nav hamburger menu */
+.navbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4b6884;
+  padding: 10px;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 2px 0;
+}
+
+.menu {
+  display: none; /* Hide the menu initially */
+}
+
 /* BEGIN hero section */
-.intro-content h1,
+/* .intro-content h1,
 .intro-content p {
-  background-color: rgba(68, 110, 142, .8);
+  background-color: rgba(255, 255, 255, .8);
   padding: 5px;
   border-top-right-radius: 5px;
   width: 50%;
 }
 h1 {
   color: white;
+  position: relative;
+} */
+
+.hero-card {
+  width: 85%;
+  margin: 200px auto;
+  min-height: 500px;
+  border-radius: 5px;
+  text-align: left;
+}
+/* BEGIN hero section */
+.intro-content h1,
+.intro-content p {
+  background-color: rgba(255,255,255,.8);
+  color:#6783a1;
+  padding: 5px;
+  border-top-right-radius: 5px;
+  width: 50%;
+}
+h1 {
+  color: #6783a1;
   position: relative;
 }
 
@@ -148,6 +196,10 @@ article#beaches {
     rgba(68, 110, 142, 1) 52%,
     rgba(171,198, 230, 1) 100%
   );
+}
+#cityFormNew {
+  margin-bottom: 12px;
+  border-bottom: solid white 2px;
 }
 
 .new-location {
@@ -264,16 +316,49 @@ footer {
   padding: 0 20px;
 }
 
-@media screen and (max-width:600px) {
-  .beach-card,
+@media screen and (max-width:768px) {
+  .new-location,
+  .newBeach,
   .pure-u-1-3,
   .pure-u-1-4,
   .pure-u-11-24,
   .pure-u-2-3 {
     display: block;
-    width: 80%;
+    width: 90%;
+    margin:auto;
   }
   header {
     position:relative;
+  }
+  .location {
+    margin-top:7px;
+  }
+  /* shows the mobile nav */
+  .navbar {
+    display: flex;
+  }
+.desktop-nav {
+    display: none;
+}
+.menu.active {
+    display: flex; /* Show the menu when active */
+    flex-direction: column;
+    position: absolute;
+    top: 100px; 
+    right: 0px; 
+    background-color: #4b6884;
+    padding: 0px;
+    width: 300px;
+  }
+  
+  .menu.active li {
+    padding: 10px;
+    width: 100%;
+    list-style-type: none;
+    border: solid white 1px;
+
+  }
+  .intro-content h1, .intro-content p {
+    width: 100%;
   }
 }
