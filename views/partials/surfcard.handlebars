@@ -15,20 +15,23 @@
             <div id="display-comment"></div>
             <hr>
             {{!-- wrapped div and created button to add/update description --}}
-            <div id="commentForm" data-card-id="{{card.id}}">
+
+            <div class="commentForm" data-card-id="{{card.id}}">
                 <label for="share">Share Your Experience</label>
                 <textarea type="text" id="input-comment" name="share"></textarea>
-                <button class="btn btn-primary" id="share-btn" type="submit">Update Journal</button>
+                <button class="btn btn-primary share-btn" type="submit">Update Journal</button>
             </div>
             <hr>   
-            <div class="form-group"> 
+            
+            <div class="form-group" data-card-id="{{card.id}}"> 
                 <p id="trash"><i class="fa-regular fa-trash"></i> REMOVE LOCATION CARD</p>     
-                <button class="btn btn-primary" id="trash" type="submit">Delete</button>
+                <button class="btn btn-primary delete-btn" type="submit">Delete</button>
             </div>
         </div>
 </div>
 {{/each}}
 {{/if}}
+
 
 {{!-- make a button on the card to delete it,
 make a button on the card to update description --}}

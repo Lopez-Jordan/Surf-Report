@@ -15,14 +15,18 @@ Location.init(
         },
         description: {
             type: DataTypes.STRING,
+            allowNull: true,
+            unique: false
         },
         lat: {
             type: DataTypes.DOUBLE,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         long: {
             type: DataTypes.DOUBLE,
-            allowNull: false
+            allowNull: false,
+            unique: true
         }
     },
     {

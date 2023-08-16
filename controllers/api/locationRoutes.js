@@ -1,30 +1,30 @@
 
 const router = require('express').Router();
-const SurferLocation = require('../../models/surferLocation');
-const Location = require('../../models/location');
+const {Surfer, Location, SurferLocation} = require('../../models');
+
 
 router.post('/location', async (req, res) => {
     try {
-        newLocation = await Location.create({
+        const newLocation = await Location.create({
             lat: req.body.lat,
             long: req.body.long,
             description: req.body.description
         });
-
         const newSurferLocation = await SurferLocation.create({
-            surfer_id: req.session.surferId,    //CHANGE HERE req.session.surferId,
-            location_id: newlocationId     // newLocation.id
+            surfer_id: req.session.surferId,
+            location_id: newLocation.id
         });
         if (!newSurferLocation) {
             return res.status(400).json({ message: "This location is already associated with the surfer!" });
         }
-        res.status(200).json({ newLocation, newSurferLocation });
         // Alternatively, you can redirect the user after the response
-        // res.redirect('/');
+        res.redirect('/');
     } catch (error) {
+        console.error("Error:", error); // Debug line
         res.status(400).json(error);
     }
 });
+
 
 
 router.put('/location/:id', async (req, res) => {
