@@ -83,7 +83,7 @@ unsplashAPI();
     return response;
   }
   
-  document.getElementById("cityForm").addEventListener("submit", async function(event) {
+  document.getElementById("cityFormNew").addEventListener("submit", async function(event) {
     event.preventDefault();
     const cityNameInput = document.getElementById("cityName");
     const locationResult = document.getElementById("locationResult");

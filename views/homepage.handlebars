@@ -58,17 +58,20 @@
       <div class="newBeach">
           <div class="new-location">
               <h3 id="search">Find a Beach</h3> 
-              <form id="cityForm">
+              <form id="cityFormNew">
                 <label for="cityName">Enter a city name:</label>
                 <input type="text" id="cityName" name="cityName" required>
                 <button type="submit">Get Location</button>
                 <h3 id="locationResult"></h3>
+              </form>
+              <form id="cityForm">
                 <label for="latitude">Latitude</label>
                 <input class="form-input" type="text" id="latitude" />
                 <label for="longitude">Longitude</label>
                 <input class="form-input" type="text" id="longitude" />
                 <button class="btn btn-primary" type="submit">Find Beach</button>
-            </form>
+              </form>
+
       </div>
         {{/if}}
     <div class="beach-container">   
@@ -114,6 +117,8 @@
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
     crossorigin="anonymous"
   ></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/location.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/login.js"></script>
