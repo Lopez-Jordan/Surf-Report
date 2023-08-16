@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
           }
         ]
       });
-
       if (allLocations.length > 0) {
         locationsWithWaveData = await Promise.all(
           allLocations.map(async (location) => {
