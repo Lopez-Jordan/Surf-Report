@@ -6,7 +6,7 @@
      <header data-aos="fade-down"
      data-aos-duration="1000" class="pure-g">
       <span class="pure-u-1-3"><img width="300px" height="auto" src="/images/sr-logo.png" alt="Surf Report logo"/></span>
-      <nav class="pure-u-2-3">
+      <nav class="pure-u-2-3 desktop-nav">
         {{!-- home, beaches, blog, connections, logout --}}
         <a href="#about">Home</a>
         {{#if loggedIn}}
@@ -20,6 +20,26 @@
           <a href="/login">Login</a>
         {{/if}}
       </nav>
+       <nav class="navbar">
+        <div class="hamburger" id="hamburger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <ul class="menu" id="menu">
+          <li><a href="#about">Home</a></li>
+         {{#if loggedIn}}
+          <li><a href="#beaches">Beaches</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#connect">Connections</a></li>
+          <li><a href="/logout">Login</a></li>
+        {{else}}
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#connect">Connections</a></li>
+          <li><a href="/login">Login</a></li>
+        {{/if}}
+        </ul>
+      </nav>
      </header>
         <!-- START HERO SECTION -->
      <article class="pure-g hero">
@@ -27,7 +47,7 @@
         <div class="intro-content">
         <h1>CURRENT CONDITION CONNECTIONS </h1>
         <p data-aos="fade-right"
-        data-aos-duration="1000">Welcome to Surf Report – your gateway to surfers paradise! Get ready to catch the perfect wave with live updates customized for your location. Explore your preferred beaches and discover the latest wave height, swell direction, and swell period. Plus, get insights from fellow users who've already been there. Dive in now!</p>
+        data-aos-duration="1000">Welcome to Surf Report, your gateway to surfers paradise! Get ready to catch the perfect wave with live updates customized for your location. Explore your preferred beaches and discover the latest wave height, swell direction, and swell period. Plus, get insights from fellow users who've already been there. Dive in now!</p>
       </div>
       </section>
      </article>
