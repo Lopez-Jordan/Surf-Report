@@ -48,38 +48,6 @@ var todayDate = dayjs().format("MM/DD/YYYY");
 var todayDateEl = document.getElementById("todaysDate");
 todayDateEl.textContent = todayDate;
 
-function unsplashAPI() {
-  var apiKey = "Ab4F25pH3_s49oNWOzNXoahqu18przepQm1JgDMKkZA";
-  var apiKey2 = "oeF6_nedrYDZgPYD3W22C9NSsJsCa0DeZfWTlHO7u2I";
-  var apiKey3 = "BhBNA4hLuZrHL_xWMeD4BgR-aMZgW07kKJhE4iDhk7E";
-
-  var requestURL =
-    "https://api.unsplash.com/photos/random?query=surf&client_id=" +
-    apiKey3;
-
-  fetch(requestURL)
-    .then((response) => response.json())
-    .then((data) => {
-
-      var photoUrl = data.urls.regular;
-
-      // document.body.querySelector('main article aside').style.backgroundImage =
-      // "url(" + photoUrl + ")";
-
-      document.body.setAttribute(
-        "style",
-        "background-image:url(" + photoUrl + ")"
-      );
- 
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-
-unsplashAPI();
-
-
 
   async function getLocationData(name) {
     var url = "https://api.openweathermap.org/geo/1.0/direct?q=" + name + "&limit=5&appid=9bce6875713db412816a04531af13ead";
