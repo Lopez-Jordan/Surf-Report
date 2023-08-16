@@ -52,31 +52,28 @@
         <!-- START BEACHES SECTION -->
         {{#if loggedIn}}
          <article id="beaches">
-      <hr data-aos="fade-up"
-      data-aos-duration="2000" style="width: 95%;">
-      <h2 data-aos="fade-up"
-      data-aos-duration="2000">Favorite Beaches</h2>
-      <h3  class="date" data-aos="fade-up"
-      data-aos-duration="2000">Current Conditions: <span id="todaysDate">7/15/23</h3>
-                <div class="newBeach">
-          <div class="location">
+      <hr style="width: 95%;">
+      <h2>Favorite Beaches</h2>
+      <h3  class="date">Current Conditions: <span id="todaysDate">7/15/23</h3>
+      <div class="newBeach">
+          <div class="new-location">
               <h3 id="search">Find a Beach</h3> 
-  <form id="cityForm">
-    <label for="cityName">Enter a city name:</label>
-    <input type="text" id="cityName" name="cityName" required>
-    <button type="submit">Get Location</button>
-                        <h3 id="locationResult"></h3>
-                      <label for="latitude">Latitude</label>
-                      <input class="form-input" type="text" id="latitude" />
-                      <label for="longitude">Longitude</label>
-                      <input class="form-input" type="text" id="longitude" />
-                      <button class="btn btn-primary" type="submit">Find Beach</button>
-                      <textarea type="text" id="input-comment" name="share"></textarea>
-                <button class="btn btn-primary" id="share-btn" type="submit">Add Description</button>
-  </form>
-  
+              <form id="cityForm">
+                <label for="cityName">Enter a city name:</label>
+                <input type="text" id="cityName" name="cityName" required>
+                <button type="submit">Get Location</button>
+                <h3 id="locationResult"></h3>
+                <label for="latitude">Latitude</label>
+                <input class="form-input" type="text" id="latitude" />
+                <label for="longitude">Longitude</label>
+                <input class="form-input" type="text" id="longitude" />
+                <button class="btn btn-primary" type="submit">Find Beach</button>
+            </form>
+      </div>
         {{/if}}
+    <div class="beach-container">   
     {{>surfcard}}
+    </div> 
     </article>
    <!-- START BLOG SECTION -->
    <article id="blog">

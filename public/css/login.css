@@ -25,3 +25,9 @@ form {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.four-zero-four-bg {
+    background-image: url(../images/storm.jpg);
+    background-position: top-center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
