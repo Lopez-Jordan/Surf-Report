@@ -77,7 +77,7 @@ async function deleteLocationCard(cardId) {
     });
     if (response.ok){
       alert("success deleting location!");
-      document.location.replace('/');
+      location.reload;
     }
   } catch (error) {
     alert('there was a problem deleting the card');

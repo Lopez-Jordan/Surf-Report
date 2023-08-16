@@ -25,8 +25,6 @@ router.post('/location', async (req, res) => {
     }
 });
 
-
-
 router.put('/location/:id', async (req, res) => {
     try {
         const locationId = req.params.id;
